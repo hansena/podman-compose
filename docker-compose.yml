@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  postgres:
+    # build: ./docker/postgres
+    image: postgres
+    restart: always
+    container_name: postgres
+    ports:
+      - "32769:5432"
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    volumes:
+      - ./.postgres/server.crt:/var/lib/postgresql/server.crt
+      - ./.postgres/server.key:/var/lib/postgresql/server.key

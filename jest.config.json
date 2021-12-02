@@ -1,0 +1,35 @@
+{
+	"verbose": false,
+	"transform": {
+		"^.+\\.js$": "babel-jest"
+	},
+	"moduleFileExtensions": ["js"],
+	"reporters": [
+		"default",
+		[
+			"jest-junit",
+			{
+				"outputDirectory": "./test_results/jest",
+				"outputName": "result.xml"
+			}
+		]
+	],
+	"setupFiles": ["<rootDir>/tools/jestSetup.js"],
+	"transformIgnorePatterns": ["<rootDir>/node_modules/(?!lodash-es)"],
+	"coverageThreshold": {
+		"global": {
+			"branches": 80,
+			"functions": 80,
+			"lines": 80,
+			"statements": 80
+		}
+	},
+	"collectCoverageFrom": ["src/**/*.{js,}", "!**/env.js", "!**/server.js"],
+	"coverageDirectory": "<rootDir>/test_results/coverage",
+	"moduleDirectories": ["node_modules", "src", "tools"],
+	"testPathIgnorePatterns": ["/node_modules/", "/assets/"],
+	"moduleNameMapper": {
+		"\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetsTransformer.js",
+		"\\.(css|less)$": "<rootDir>/tools/assetsTransformer.js"
+	}
+}

@@ -1,0 +1,14 @@
+{
+    "version": "0.0.1",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Node (Babel)",
+        "program": "${workspaceRoot}/tools/vsCodeRegister.js",
+        "cwd": "${workspaceRoot}",
+        "sourceMaps": true
+      }
+    ]
+  }
+  

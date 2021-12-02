@@ -1,0 +1,35 @@
+# Logs
+logs
+*.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# OpenAPI spec (Swagger)
+assets/openAPI.json
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+node_modules
+
+#build folder
+build
+
+#dist folder
+dist
+
+#test results
+test_results
+
+#environment variables
+.env
+
+# Mac files
+.DS_Store
+
+#Code Runner plugin temp files
+tempCodeRunnerFile.javascript

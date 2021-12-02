@@ -1,0 +1,51 @@
+{
+	"name": "podman-compose",
+	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hansena/podman-compose.git"
+	},
+	"bin": {
+		"podman-compose": "./index.js"
+	},
+	"license": "MIT",
+	"author": "Alex Hansen",
+	"description": "A utility library to manage podman containers from a docker-compose.yml",
+	"engines": {
+		"node": "^14.15.0",
+		"npm": "^6.0.0"
+	},
+	"forge": {
+		"artifact_guid": ""
+	},
+	"main": "build/index.js",
+	"dependencies": {
+		"js-yaml": "4.1.0",
+		"logger-line-number": "1.0.4",
+		"shelljs": "0.8.4"
+	},
+	"devDependencies": {
+		"@types/jest": "27.x.x",
+		"eslint": "8.3.0",
+		"eslint-config-prettier": "8.3.0",
+		"eslint-plugin-prettier": "4.0.0",
+		"eslint-watch": "8.0.0",
+		"jest": "27.3.1",
+		"jest-cli": "27.3.1",
+		"jest-junit": "13.0.0",
+		"prettier": "2.4.1",
+		"pretty-quick": "3.1.2"
+	},
+	"scripts": {
+		"test": "jest",
+		"test:coverage": "npm run test -- --coverage ",
+		"test:watch": "npm run test -- --watch",
+		"build": "npm run build:clear && babel src -d build --ignore '**/*.test.js'",
+		"build:clear": "rm -rf build && mkdir build",
+		"lint": "esw src tools --ext .js --ext .jsx --color --fix",
+		"lint:build": "esw src tools --ext .js --ext .jsx --color --format junit --output-file ./test_results/eslint/result.xml",
+		"lint:watch": "npm run lint -- --watch",
+		"custom:publish": "if test $BRANCH = master ; then npm publish ; fi ",
+		"update:version": "git reset --hard; PACKAGE_NAME=@lmig/ag-podman-compose node tools/setVersion.js"
+	}
+}
